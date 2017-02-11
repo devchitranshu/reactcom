@@ -27,11 +27,13 @@ class ProductController implements ControllerProviderInterface
      * @var array
      */
     protected $products = [
-        '1' => [
+        1 => [
+            "id"    => 1,
             'name'  => 'Product 1',
             'price' => 100.00,
         ],
-        '2' => [
+        2 => [
+            "id"    => 2,
             'name'  => 'Product 2',
             'price' => 200.00,
         ],
@@ -58,7 +60,7 @@ class ProductController implements ControllerProviderInterface
      */
     public function getAll(): string
     {
-        return json_encode($this->products);
+        return json_encode(array_values($this->products));
     }
 
     /**

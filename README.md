@@ -32,5 +32,4 @@ http://127.0.0.1:8060/
 
 ** TODO LIST **
 * add api authentication & authorization using symfony security component
-* use backend api in react js to retrieve product list
 * use backend api in react js to retrieve product by id

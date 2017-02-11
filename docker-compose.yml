@@ -28,7 +28,7 @@ reactcom-frontend:
   ports:
     - "8060:3000"
   volumes:
-    - ./frontend:/var/www
+    - ./frontend:/usr/src/app
 
 composer:
  image: composer/composer:latest
