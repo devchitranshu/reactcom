@@ -22,10 +22,17 @@ reactcom-webserver:
   links:
    - reactcom-php-fpm
 
+reactcom-frontend:
+  build: .
+  dockerfile: frontend/Dockerfile
+  ports:
+    - "8060:3000"
+  volumes:
+    - ./frontend:/var/www
+
 composer:
  image: composer/composer:latest
  command: install
  working_dir: /var/www/reactcom
  volumes:
   - ./backend:/var/www/reactcom
-
