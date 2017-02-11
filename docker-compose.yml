@@ -1,0 +1,31 @@
+reactcom-php-fpm:
+  build: .
+  dockerfile: docker/php-fpm/Dockerfile
+  container_name: reactcom-php-fpm
+  volumes:
+    - ./backend:/var/www/reactcom
+    - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+  links:
+    - reactcom-elasticsearch
+
+reactcom-elasticsearch:
+  image: elasticsearch:5.2
+  container_name: reactcom-elasticsearch
+
+reactcom-webserver:
+  image: phpdockerio/nginx:latest
+  container_name: reactcom-webserver
+  volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  ports:
+   - "8059:80"
+  links:
+   - reactcom-php-fpm
+
+composer:
+ image: composer/composer:latest
+ command: install
+ working_dir: /var/www/reactcom
+ volumes:
+  - ./backend:/var/www/reactcom
+
