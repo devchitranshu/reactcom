@@ -18,6 +18,19 @@
   font-size: large;
 }
 
+.product {
+  float: left;
+  display: block;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.productImage {
+  width: 100px;
+  height: auto !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

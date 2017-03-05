@@ -6,17 +6,19 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: []
+            products: [],
+            total_count: 0
         };
     }
 
     componentWillMount() {
-        fetch(`http://localhost:8059/api/product`)
+        fetch(`http://m2.localhost:8061/rest/V1/products?searchCriteria[pageSize]=20`)
             .then(result => {
                 return result.json()
             })
             .then(json => {
-                this.setState({items: json});
+                this.setState({products: json.items});
+                this.setState({total_count: json.total_count});
             })
             .catch(function (error) {
                 console.log(error);
@@ -31,11 +33,26 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
                 <p className="App-intro">
-                    Items
+                    Items ({ this.state.total_count })
                 </p>
                 <div>
-                    { this.state.items.map(item => {
-                        return (<div key={item.id}>{item.name} Price: {item.price} EURO</div>)
+                    { this.state.products.map(item => {
+                        var productKey = item.id + "product";
+                        var imageKey;
+                        return (<div className="product" key={productKey}>
+                            { item.custom_attributes.map(attribute => {
+
+                                if (attribute.attribute_code === 'thumbnail') {
+                                    imageKey = item.id + "image";
+                                    var url = "http://m2.localhost:8061/media/catalog/product" + attribute.value;
+                                    return <img className="productImage" key={imageKey} src={url} alt="{item.name}" />
+                                }
+
+                                return ''
+
+                            })}
+                            {item.name} Price: {item.price} EURO
+                        </div>)
                     })}
                 </div>
             </div>
