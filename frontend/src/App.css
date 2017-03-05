@@ -18,12 +18,28 @@
   font-size: large;
 }
 
+.categories {
+  clear:both;
+  height: 50px;
+  padding: 10px;
+}
+.category {
+  float: left;
+  margin-right: 15px;
+  padding: 5px;
+}
+.category:last-child {
+  clear: right;
+}
+
 .product {
   float: left;
   display: block;
   padding: 10px;
   border: 1px solid black;
   margin: 10px;
+  width: 200px;
+  height: 175px;
 }
 
 .productImage {
