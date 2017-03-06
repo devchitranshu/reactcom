@@ -1,5 +1,18 @@
 # reactcom
 
+React.js based, platform agnostic eCommerce - code name “Recom”
+
+Our idea is to create eCommerce frontend that can be connected to many different eCommerce backends. By backend I mean eCommerce platforms like:
+- Magento1,
+- Magento2, 
+- Shopify Pro,
+- Prestashop
+ -You name it!
+
+**No backend = No problem**
+Recom is backend agnostic what means it can work without backend access; it has it’s own non-sql database (Elastic Search or MongoDB); it’s linearly scalable and support sharding; all communication with backend goes by Message Bus (Rabbit MQ or Kafka) and via REST services / connectors.
+
+
 Run 
 ```
 docker-compose up -d
