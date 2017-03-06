@@ -49,4 +49,4 @@ http://127.0.0.1:8060/
 
 ** Architecture draft **
 
-![Architecture draft][https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=1]
+[https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=1]
