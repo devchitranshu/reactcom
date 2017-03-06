@@ -48,4 +48,5 @@ http://127.0.0.1:8060/
 * use backend api in react js to retrieve product by id
 
 ** Architecture draft **
-(https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=0)
+
+[Architecture draft] (https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=1)
