@@ -43,10 +43,10 @@ http://127.0.0.1:8059/api/product/X
 http://127.0.0.1:8060/
 ```
 
-** TODO LIST **
+**TODO LIST**
 * add api authentication & authorization using symfony security component
 * use backend api in react js to retrieve product by id
 
-** Architecture draft **
+**Architecture draft**
 
-[https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=1]
+![Architecture draft][https://www.dropbox.com/s/1q3xedpmalfzwzv/Zrzut%20ekranu%202017-03-06%2005.59.37.png?dl=1]
