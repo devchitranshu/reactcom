@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { selectCategory, fetchProductsIfNeeded, invalidateCategory } from '../actions/catalog';
 import Products from '../components/Catalog';
 import Picker from '../components/Picker'
+import {browserHistory} from 'react-router';
 
 class Catalog extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class Catalog extends Component {
     handleChange(nextCategory) {
         this.props.dispatch(selectCategory(nextCategory));
         this.props.dispatch(fetchProductsIfNeeded(nextCategory));
+        browserHistory.push('/catalog/page/' + nextCategory);
     }
 
     handleRefreshClick(e) {

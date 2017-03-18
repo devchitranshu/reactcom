@@ -5,7 +5,7 @@ export default class Picker extends Component {
         const { value, onChange, pageSize, totalCount } = this.props;
         let pages = Math.ceil(parseInt(totalCount) / parseInt(pageSize));
         let options = [];
-        for (var i = 1; i < parseInt(pages); i++) {
+        for (var i = 1; i < pages; i++) {
             options[i] = i;
         }
 
