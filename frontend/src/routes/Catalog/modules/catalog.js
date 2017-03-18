@@ -32,7 +32,10 @@ function posts(state = { catalog: {
             return Object.assign({}, state.catalog, {
                 isFetching: false,
                 didInvalidate: false,
-                items: action.posts,
+                items: action.products,
+                pageSize: action.pageSize,
+                currentPage: action.currentPage,
+                totalCount: action.totalCount,
                 lastUpdated: action.receivedAt
             });
         default:

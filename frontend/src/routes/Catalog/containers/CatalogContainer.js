@@ -37,12 +37,15 @@ class Catalog extends Component {
     }
 
     render() {
-        const { selectedCategory, products, isFetching, lastUpdated } = this.props;
+        const { selectedCategory, products, pageSize, totalCount, isFetching, lastUpdated } = this.props;
         return (
             <div>
+                {products.length > 0 &&
                 <Picker value={selectedCategory}
                         onChange={this.handleChange}
-                        options={[ '1', '2' ]} />
+                        pageSize={pageSize}
+                        totalCount={totalCount} />
+                }
                 <p>
                     {lastUpdated &&
                     <span>
@@ -76,6 +79,8 @@ class Catalog extends Component {
 Catalog.propTypes = {
     selectedCategory: PropTypes.string.isRequired,
     products: PropTypes.array.isRequired,
+    //pageSize: PropTypes.number.isRequired,
+    //totalCount: PropTypes.number.isRequired,
     isFetching: PropTypes.bool.isRequired,
     lastUpdated: PropTypes.number,
     dispatch: PropTypes.func.isRequired
@@ -86,15 +91,21 @@ function mapStateToProps(state) {
     const {
         isFetching,
         lastUpdated,
-        items: products
+        items: products,
+        pageSize: pageSize,
+        totalCount: totalCount
     } = productsByCategory[selectedCategory] || {
         isFetching: true,
-        items: []
+        items: [],
+        pageSize: 20,
+        totalCount: 20
     };
 
     return {
         selectedCategory,
         products,
+        pageSize,
+        totalCount,
         isFetching,
         lastUpdated
     };

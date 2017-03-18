@@ -30,7 +30,10 @@ function receivePosts(category, json) {
     return {
         type: RECEIVE_PRODUCTS,
         category,
-        posts: json.items,
+        products: json.items,
+        pageSize: json.search_criteria.page_size,
+        currentPage: json.search_criteria.current_page,
+        totalCount: json.total_count,
         receivedAt: Date.now()
     };
 }

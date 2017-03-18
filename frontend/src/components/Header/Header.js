@@ -4,7 +4,7 @@ import './Header.scss'
 
 export const Header = () => (
   <div>
-    <h1>React Redux Starter Kit</h1>
+    <h1>React.js based, platform agnostic eCommerce</h1>
     <IndexLink to='/' activeClassName='route--active'>
       Home
     </IndexLink>
