@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
     SELECT_CATEGORY, INVALIDATE_CATEGORY,
     REQUEST_PRODUCTS, RECEIVE_PRODUCTS
-} from './actions';
+} from '../actions/catalog';
 
 function selectedCategory(state = '1', action) {
     switch (action.type) {
@@ -13,23 +13,23 @@ function selectedCategory(state = '1', action) {
     }
 }
 
-function posts(state = {
+function posts(state = { catalog: {
     isFetching: false,
     didInvalidate: false,
     items: []
-}, action) {
+}}, action) {
     switch (action.type) {
         case INVALIDATE_CATEGORY:
-            return Object.assign({}, state, {
+            return Object.assign({}, state.catalog, {
                 didInvalidate: true
             });
         case REQUEST_PRODUCTS:
-            return Object.assign({}, state, {
+            return Object.assign({}, state.catalog, {
                 isFetching: true,
                 didInvalidate: false
             });
         case RECEIVE_PRODUCTS:
-            return Object.assign({}, state, {
+            return Object.assign({}, state.catalog, {
                 isFetching: false,
                 didInvalidate: false,
                 items: action.posts,

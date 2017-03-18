@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectCategory, fetchProductsIfNeeded, invalidateCategory } from '../actions';
-import Products from '../components/Products';
-import Picker from '../components/Picker';
+import { selectCategory, fetchProductsIfNeeded, invalidateCategory } from '../actions/catalog';
+import Products from '../components/Catalog';
+import Picker from '../components/Picker'
 
-class AsyncApp extends Component {
+class Catalog extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -73,7 +73,7 @@ class AsyncApp extends Component {
     }
 }
 
-AsyncApp.propTypes = {
+Catalog.propTypes = {
     selectedCategory: PropTypes.string.isRequired,
     products: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
@@ -82,7 +82,7 @@ AsyncApp.propTypes = {
 };
 
 function mapStateToProps(state) {
-    const { selectedCategory, productsByCategory } = state;
+    const { selectedCategory, productsByCategory } = state.catalog;
     const {
         isFetching,
         lastUpdated,
@@ -100,4 +100,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(AsyncApp);
+export default connect(mapStateToProps)(Catalog);

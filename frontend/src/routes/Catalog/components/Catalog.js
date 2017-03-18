@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
-import './Products.css';
+import './Catalog.scss';
 
-export default class Products extends Component {
+export default class Catalog extends Component {
     render() {
         return (
             <div>
@@ -31,6 +31,6 @@ export default class Products extends Component {
     }
 }
 
-Products.propTypes = {
+Catalog.propTypes = {
     products: PropTypes.array.isRequired
 };

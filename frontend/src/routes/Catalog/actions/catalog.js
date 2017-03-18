@@ -45,7 +45,7 @@ function fetchProducts(category) {
 }
 
 function shouldFetchPosts(state, category) {
-    const posts = state.productsByCategory[category];
+    const posts = state.catalog.productsByCategory[category];
     if (!posts) {
         return true;
     } else if (posts.isFetching) {
